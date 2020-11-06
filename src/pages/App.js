@@ -1,13 +1,16 @@
 import React, {useCallback, useEffect, useState} from "react";
 import LetterComponent from "../components/Letter.component";
+import MarkerComponent from "../components/Marker.component";
 
 const VALIDATE = /[A-Za-zА-Яа-я]/
 
-const appStyle = {
-  display: 'flex',
-  flexDirection: 'column',
-  justifyContent: 'center',
-  alignItems: 'center'
+const style= {
+  app: {
+    display: 'flex',
+    flexDirection: 'column',
+    justifyContent: 'center',
+    alignItems: 'center'
+  }
 }
 
 function App() {
@@ -42,8 +45,9 @@ function App() {
   }
 
   return (
-    <div style={appStyle}>
+    <div style={style.app}>
       {onRenderWord()}
+      <MarkerComponent/>
     </div>
   );
 }
