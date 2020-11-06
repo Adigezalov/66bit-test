@@ -20,7 +20,7 @@ function App() {
   useEffect(() => {
     document.addEventListener("keypress", onPressKeyHandler);
     return () => {
-      window.removeEventListener('keydown', onPressKeyHandler);
+      window.removeEventListener('keypress', onPressKeyHandler);
     };
   }, [])
 
@@ -30,10 +30,7 @@ function App() {
 
   const onPressKeyHandler = useCallback((event) => {
     const { key, keyCode } = event;
-
-    if (VALIDATE.test(key) && keyCode !== 13) {
-      setPressKey(key)
-    }
+    VALIDATE.test(key) && keyCode !== 13 && setPressKey(key)
   }, [])
 
   const onRenderWord = () => {
